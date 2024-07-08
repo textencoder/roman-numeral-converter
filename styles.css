@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#output {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
