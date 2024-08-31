@@ -1,7 +1,21 @@
 const userInput = document.getElementById('number');
 const convertBtn = document.getElementById('convert-btn');
 const numeralOutput = document.getElementById('output');
+const inputBox = document.getElementById('number');
 
+convertBtn.addEventListener('click', () => {
+    numeralConverter(inputBox.value);
+    inputBox.blur();
+    inputBox.value = '';
+})
+
+inputBox.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === 13) {
+        numeralConverter(inputBox.value);
+        inputBox.blur();
+        inputBox.value = '';
+    }
+})
 
 const romanNumerals = {
     M: 1000,
@@ -19,11 +33,13 @@ const romanNumerals = {
     I: 1,
 }
 
-function convertFunction(input) {
-    outputStr = '';
-    for (const key in romanNumerals) {
-        console.log(input - romanNumerals[key]);
-        break;
-              
-    }
+function numeralConverter(userInput) {
+    let convertedString = '';
+    for (let i=0; i < 13; i++) {  
+            while (userInput - Object.values(romanNumerals)[i] >= 0) {
+                userInput -= Object.values(romanNumerals)[i];
+                convertedString += Object.keys(romanNumerals)[i];          
+            }
+        }
+    numeralOutput.innerText = convertedString;
 }
