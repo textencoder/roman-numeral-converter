@@ -43,3 +43,11 @@ function numeralConverter(userInput) {
         }
     numeralOutput.innerText = convertedString;
 }
+
+function checkValid() {
+    if (inputBox.value < 0) {
+        numeralOutput.innerText = "Please enter a number greater than or equal to 1";
+    } else if (inputBox.value > 3999) {
+        numeralOutput.innerText = "Please enter a number less than or equal to 3999";
+    }
+}
